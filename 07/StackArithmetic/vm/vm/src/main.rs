@@ -1,4 +1,5 @@
-mod parser;
+pub mod parser;
+mod code_writer;
 
 
 fn main() {
