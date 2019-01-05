@@ -20,3 +20,15 @@ impl<'a> CodeWriter<'a> {
     pub fn write_push_pop(command_type: parser::CommandType, segment: String, index: isize) {
     }
 }
+
+pub enum ArithmeticType {
+    ADD,
+    SUB,
+    ENG,
+    EQ,
+    GT,
+    LT,
+    AND,
+    OR,
+    NOT,
+}
