@@ -17,7 +17,7 @@ impl<'a> Parser<'a> {
 
     pub fn has_more_command(&mut self) -> bool {
         let i = self.index;
-        let len = self.command.len() - 1;
+        let len = self.command.len();
         if len == i {
             return false;
         }
@@ -72,4 +72,19 @@ pub enum CommandType {
     CFunction,
     CReturn,
     CCall,
+}
+
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn B01() {
+        let mut commands : Vec<&str> = Vec::new();
+        commands.push("push");
+        let mut parser = Parser::new(commands);
+        parser.has_more_command();
+        parser.advance();
+        assert_eq!(parser.has_more_command(), false);
+    }
 }
